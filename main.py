@@ -6,9 +6,6 @@ import pandas as pd
 NUM_STATES = 50
 
 
-# Functions
-
-
 # Main
 # Setup
 screen = turtle.Screen()
@@ -37,6 +34,8 @@ while len(guessed_states) < 50:
         score += 1
         guessed_states.append(answer_state)
     elif answer_state == "Exit":
+        missed_states = [
+            state for state in us_state_data.state.values if state not in guessed_states]
+        missed_states_df = pd.DataFrame(missed_states)
+        missed_states_df.to_csv("Missed_states.csv")
         break
-
-# screen.mainloop()  # use screen.mainloop() or turtle.done()
