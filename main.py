@@ -2,8 +2,6 @@ import turtle
 
 
 # Functions
-def get_mouse_click_coord(x, y):
-    print(x, y)
 
 
 # Main
@@ -13,7 +11,9 @@ screen.title("U.S. States Game")
 image = "./us-states-game-start/blank_states_img.gif"
 screen.bgpic(image)
 
-screen.onscreenclick(fun=get_mouse_click_coord)
+
+answer_state = screen.textinput(
+    title="Name a State", prompt="Enter a U.S. State name").title()
 
 # Game
 screen.mainloop()  # use screen.mainloop() or turtle.done()
