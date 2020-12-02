@@ -30,12 +30,13 @@ while len(guessed_states) < 50:
     answer_state = screen.textinput(
         title=f"{score}/{NUM_STATES} States Correct", prompt="Enter a U.S. State name").title()
 
-    if answer_state in us_state_data.state.values:
+    if answer_state in us_state_data.state.values and answer_state not in guessed_states:
         state_data = us_state_data[us_state_data.state == answer_state]
         t.goto(int(state_data.x), int(state_data.y))
         t.write(answer_state)
         score += 1
         guessed_states.append(answer_state)
+    elif answer_state == "Exit":
+        break
 
-
-screen.mainloop()  # use screen.mainloop() or turtle.done()
+# screen.mainloop()  # use screen.mainloop() or turtle.done()
